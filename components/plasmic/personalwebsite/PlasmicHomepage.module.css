@@ -1,4 +1,4 @@
-.root {
+.name {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -11,14 +11,7 @@
   min-height: 0;
   padding: 0px 0px 156px;
 }
-.text__uxzdG {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 800px;
-  min-width: 0;
-}
-.freeBox___7AJit {
+.name2 {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -57,7 +50,7 @@
   min-width: 0;
   padding: 16px;
 }
-.freeBox___6AOzN {
+.mission {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -86,53 +79,57 @@
   text-overflow: clip;
   padding-bottom: 0px;
 }
-.freeBox__gNobn {
+.theShitIDoPic {
   display: flex;
   flex-direction: row;
   position: relative;
   background: #ffffff;
   width: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
   min-width: 0;
 }
-.freeBox__gNobn > :global(.__wab_flex-container) {
+.theShitIDoPic > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   min-width: 0;
   margin-left: calc(0px - 48px);
   width: calc(100% + 48px);
 }
-.freeBox__gNobn > :global(.__wab_flex-container) > *,
-.freeBox__gNobn > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__gNobn > :global(.__wab_flex-container) > picture > img,
-.freeBox__gNobn
+.theShitIDoPic > :global(.__wab_flex-container) > *,
+.theShitIDoPic > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.theShitIDoPic > :global(.__wab_flex-container) > picture > img,
+.theShitIDoPic
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-left: 48px;
 }
-.freeBox__gNobn {
+.theShitIDoPic {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
   background: #ffffff;
   width: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__gNobn {
+  .theShitIDoPic {
     width: 100%;
     min-width: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__gNobn > :global(.__wab_flex-container) {
+  .theShitIDoPic > :global(.__wab_flex-container) {
     min-width: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__gNobn {
+  .theShitIDoPic {
     width: 100%;
     min-width: 0;
   }
@@ -407,6 +404,35 @@
 .img__dxE8R > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
+.moreInfo {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: radial-gradient(
+      ellipse 40% 60% at 70% 20%,
+      #ff9fd4 0%,
+      #ff56cc 100%
+    )
+    0% 0% / 100% 100% repeat;
+  min-width: 0;
+  padding: 29px 8px 34px;
+}
+.text__uqvIx {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  color: #ffffff;
+  min-width: 0;
+}
+.link {
+  color: #000000;
+}
 .freeBox__uAqaW {
   display: flex;
   flex-direction: column;
@@ -416,7 +442,7 @@
   margin-bottom: 0px;
   background: #ffd0ec;
   min-width: 0;
-  padding: 0px 16px 53px;
+  padding: 0px 16px 13px;
 }
 .freeBox__uAqaW > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -447,7 +473,7 @@
   margin-bottom: 0px;
   background: #ffd0ec;
   min-width: 0;
-  padding: 0px 16px 53px;
+  padding: 0px 16px 13px;
 }
 .freeBox__v2Yig {
   display: flex;
@@ -738,6 +764,9 @@
   text-decoration-line: none;
   text-overflow: clip;
 }
+.h4 {
+  margin-top: 0px;
+}
 .freeBox__djqLb {
   display: flex;
   position: relative;
@@ -771,20 +800,20 @@
   object-fit: cover;
   width: 24px;
   height: 24px;
-  color: #05050599;
+  color: #050505;
   flex-shrink: 0;
 }
 .svg__tsKEe {
   object-fit: cover;
   width: 24px;
   height: 24px;
-  color: #05050599;
+  color: #050505fc;
   flex-shrink: 0;
 }
 .svg__ql402 {
   object-fit: cover;
   width: 24px;
   height: 24px;
-  color: #05050599;
+  color: #050505;
   flex-shrink: 0;
 }

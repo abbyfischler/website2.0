@@ -21,6 +21,12 @@ import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 
 import {
+  usePlasmicDataConfig,
+  executePlasmicDataOp,
+  useDependencyAwareQuery
+} from "@plasmicapp/react-web/lib/data-sources";
+
+import {
   hasVariant,
   classNames,
   wrapWithClassName,
@@ -37,6 +43,7 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import Button2 from "../../Button2"; // plasmic-import: FipYJuf5U-D/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: CFzWoZH4Bb/codeComponent
 
 import { useScreenVariants as useScreenVariantskkI7Czpb2V5B } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: kkI7CZPB_2v5b/globalVariant
 
@@ -61,8 +68,13 @@ type ArgPropType = keyof PlasmicHomepage__ArgsType;
 export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
-  root?: p.Flex<"div">;
+  name?: p.Flex<"div">;
+  name2?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
+  mission?: p.Flex<"div">;
+  theShitIDoPic?: p.Flex<"div">;
+  moreInfo?: p.Flex<"div">;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
   button2?: p.Flex<typeof Button2>;
   h4?: p.Flex<"h4">;
 };
@@ -135,8 +147,8 @@ function PlasmicHomepage__RenderFunc(props: {
 
       <div className={projectcss.plasmic_page_wrapper}>
         <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
+          data-plasmic-name={"name"}
+          data-plasmic-override={overrides.name}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
@@ -145,19 +157,14 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
-            sty.root
+            sty.name
           )}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__uxzdG
-            )}
+            data-plasmic-name={"name2"}
+            data-plasmic-override={overrides.name2}
+            className={classNames(projectcss.all, sty.name2)}
           >
-            {""}
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox___7AJit)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -193,7 +200,11 @@ function PlasmicHomepage__RenderFunc(props: {
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__pp9TP)}>
-            <div className={classNames(projectcss.all, sty.freeBox___6AOzN)}>
+            <div
+              data-plasmic-name={"mission"}
+              data-plasmic-override={overrides.mission}
+              className={classNames(projectcss.all, sty.mission)}
+            >
               <div
                 className={classNames(
                   projectcss.all,
@@ -216,8 +227,10 @@ function PlasmicHomepage__RenderFunc(props: {
           </div>
           <p.Stack
             as={"div"}
+            data-plasmic-name={"theShitIDoPic"}
+            data-plasmic-override={overrides.theShitIDoPic}
             hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__gNobn)}
+            className={classNames(projectcss.all, sty.theShitIDoPic)}
           >
             <div className={classNames(projectcss.all, sty.columns__qsmo)}>
               <div className={classNames(projectcss.all, sty.column__fICr)}>
@@ -354,6 +367,50 @@ function PlasmicHomepage__RenderFunc(props: {
               </div>
             </div>
           </p.Stack>
+          <div
+            data-plasmic-name={"moreInfo"}
+            data-plasmic-override={overrides.moreInfo}
+            className={classNames(projectcss.all, sty.moreInfo)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__uqvIx
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    " I am a 2021, 2022, and 2023 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). I was a 2020, 2021 and 2022 "
+                  }
+                </React.Fragment>
+                {
+                  <p.PlasmicLink
+                    data-plasmic-name={"link"}
+                    data-plasmic-override={overrides.link}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link
+                    )}
+                    component={Link}
+                    href={"https://www.kodewithklossy.com/" as const}
+                    platform={"nextjs"}
+                  >
+                    {"Kode with Klossy "}
+                  </p.PlasmicLink>
+                }
+                <React.Fragment>
+                  {
+                    "scholar and am a big fan of their programs. I also am a board member of the UCLA Jonsson Cancer Center Foundation Learning Board. I love all things technology. I'm an ambassador for Bit by Bit and Generation She."
+                  }
+                </React.Fragment>
+              </React.Fragment>
+            </div>
+          </div>
           <p.Stack
             as={"div"}
             hasGap={true}
@@ -487,7 +544,16 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.h4
                             )}
                           >
-                            {"My socials:"}
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ color: "#FC25B7" }}
+                              >
+                                {"My socials:"}
+                              </span>
+                            </React.Fragment>
                           </h4>
                         }
                         <React.Fragment>{""}</React.Fragment>
@@ -502,17 +568,154 @@ function PlasmicHomepage__RenderFunc(props: {
                         className={classNames(projectcss.all, sty.svg__w3AbK)}
                         onClick={async event => {
                           const $steps = {};
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: __wrapUserFunction(
+                                    {
+                                      type: "InteractionArgLoc",
+                                      actionName: "navigation",
+                                      interactionUuid: "IBHrhl_ja",
+                                      componentUuid: "OFCea_mty2_t",
+                                      argName: "destination"
+                                    },
+                                    () =>
+                                      "https://www.instagram.com/abby_fischler/"
+                                  )
+                                };
+                                return __wrapUserFunction(
+                                  {
+                                    type: "InteractionLoc",
+                                    actionName: "navigation",
+                                    interactionUuid: "IBHrhl_ja",
+                                    componentUuid: "OFCea_mty2_t"
+                                  },
+                                  () =>
+                                    (({ destination }) => {
+                                      __nextRouter?.push(destination);
+                                    })?.apply(null, [actionArgs]),
+                                  actionArgs
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await __wrapUserPromise(
+                              {
+                                type: "InteractionLoc",
+                                actionName: "navigation",
+                                interactionUuid: "IBHrhl_ja",
+                                componentUuid: "OFCea_mty2_t"
+                              },
+                              $steps["goToPage"]
+                            );
+                          }
                         }}
                         role={"img"}
                       />
 
                       <Icon2Icon
                         className={classNames(projectcss.all, sty.svg__tsKEe)}
+                        onClick={async event => {
+                          const $steps = {};
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: __wrapUserFunction(
+                                    {
+                                      type: "InteractionArgLoc",
+                                      actionName: "navigation",
+                                      interactionUuid: "zvP76jIzS",
+                                      componentUuid: "OFCea_mty2_t",
+                                      argName: "destination"
+                                    },
+                                    () => "https://github.com/abbyfischler"
+                                  )
+                                };
+                                return __wrapUserFunction(
+                                  {
+                                    type: "InteractionLoc",
+                                    actionName: "navigation",
+                                    interactionUuid: "zvP76jIzS",
+                                    componentUuid: "OFCea_mty2_t"
+                                  },
+                                  () =>
+                                    (({ destination }) => {
+                                      __nextRouter?.push(destination);
+                                    })?.apply(null, [actionArgs]),
+                                  actionArgs
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await __wrapUserPromise(
+                              {
+                                type: "InteractionLoc",
+                                actionName: "navigation",
+                                interactionUuid: "zvP76jIzS",
+                                componentUuid: "OFCea_mty2_t"
+                              },
+                              $steps["goToPage"]
+                            );
+                          }
+                        }}
                         role={"img"}
                       />
 
                       <Icon28Icon
                         className={classNames(projectcss.all, sty.svg__ql402)}
+                        onClick={async event => {
+                          const $steps = {};
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: __wrapUserFunction(
+                                    {
+                                      type: "InteractionArgLoc",
+                                      actionName: "navigation",
+                                      interactionUuid: "JmrL-Cb0V",
+                                      componentUuid: "OFCea_mty2_t",
+                                      argName: "destination"
+                                    },
+                                    () =>
+                                      "https://www.linkedin.com/in/abby-fischler-27a90324a/"
+                                  )
+                                };
+                                return __wrapUserFunction(
+                                  {
+                                    type: "InteractionLoc",
+                                    actionName: "navigation",
+                                    interactionUuid: "JmrL-Cb0V",
+                                    componentUuid: "OFCea_mty2_t"
+                                  },
+                                  () =>
+                                    (({ destination }) => {
+                                      __nextRouter?.push(destination);
+                                    })?.apply(null, [actionArgs]),
+                                  actionArgs
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await __wrapUserPromise(
+                              {
+                                type: "InteractionLoc",
+                                actionName: "navigation",
+                                interactionUuid: "JmrL-Cb0V",
+                                componentUuid: "OFCea_mty2_t"
+                              },
+                              $steps["goToPage"]
+                            );
+                          }
+                        }}
                         role={"img"}
                       />
                     </p.Stack>
@@ -528,8 +731,23 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "button2", "h4"],
+  name: [
+    "name",
+    "name2",
+    "h1",
+    "mission",
+    "theShitIDoPic",
+    "moreInfo",
+    "link",
+    "button2",
+    "h4"
+  ],
+  name2: ["name2", "h1"],
   h1: ["h1"],
+  mission: ["mission"],
+  theShitIDoPic: ["theShitIDoPic"],
+  moreInfo: ["moreInfo", "link"],
+  link: ["link"],
   button2: ["button2"],
   h4: ["h4"]
 } as const;
@@ -537,8 +755,13 @@ type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
-  root: "div";
+  name: "div";
+  name2: "div";
   h1: "h1";
+  mission: "div";
+  theShitIDoPic: "div";
+  moreInfo: "div";
+  link: "a";
   button2: typeof Button2;
   h4: "h4";
 };
@@ -590,7 +813,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       forNode: nodeName
     });
   };
-  if (nodeName === "root") {
+  if (nodeName === "name") {
     func.displayName = "PlasmicHomepage";
   } else {
     func.displayName = `PlasmicHomepage.${nodeName}`;
@@ -600,10 +823,15 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
 
 export const PlasmicHomepage = Object.assign(
   // Top-level PlasmicHomepage renders the root element
-  makeNodeComponent("root"),
+  makeNodeComponent("name"),
   {
     // Helper components rendering sub-elements
+    name2: makeNodeComponent("name2"),
     h1: makeNodeComponent("h1"),
+    mission: makeNodeComponent("mission"),
+    theShitIDoPic: makeNodeComponent("theShitIDoPic"),
+    moreInfo: makeNodeComponent("moreInfo"),
+    link: makeNodeComponent("link"),
     button2: makeNodeComponent("button2"),
     h4: makeNodeComponent("h4"),
 
